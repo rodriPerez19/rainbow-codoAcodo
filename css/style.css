@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;1,200;1,300&display=swap');
+body{
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgba(0,0,0,0.1);
+}
+.main__index{
+    background-image: url("../img/rainbow.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/*! aca arranca el home  */
+
+.main__home{
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows:100vh 40vh 50vh ;
+    grid-template-columns: 10rem 1fr 10rem;
+    grid-template-areas: "nav       nav       nav"
+                         "contenido contenido contenido"
+                         "carousel carousel carousel";
+
+}
+
+.navbar{
+    grid-area: nav;
+    background-image: url("../img/FondoNav.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    
+}
+.navbar img{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+.opciones{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 5rem;
+    position: sticky;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.2);
+    top:0;
+}
+.opciones a{
+    font-size: 20px;
+    text-decoration: none;
+    padding: 5px;
+    transition: all 1s ease;
+    color: #fff;
+}
+.menu__hamburguesa{
+    display: none;
+}
+.descripcion{
+    grid-area: contenido;
+    position: relative;
+    
+    justify-content: start;
+    align-items: center;    
+}
+.card{
+    margin: 0px 5px;
+    position: absolute;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black; 
+    font-size: 20px;
+}
+.card > h1{
+    border-bottom: 2px solid #000; 
+    margin: 20px;   
+}
+
+.carousel__container{
+    grid-area: carousel;
+    
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.carousel__content{
+    
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.carousel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    transition: 1s;
+}
+.carousel__titulo{
+ margin-top: 20px;
+ border-bottom: 2px solid black;
+}
+.carousel img{
+    
+    width: 25%;
+    height: 80%;
+}
+.puntos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: center;
+    
+}
+.punto{
+    display: block;
+    background-color:black ;
+    width: 15px;
+    height: 15px;
+    border-radius: 1em;
+    margin: 5px;
+}
+
+.punto.activo{
+    background-color: orange;
+}
+
+
+
+@media (max-width: 780px) {
+
+
+    .card{
+        letter-spacing: 0px;
+        font-size: 1rem;
+    }
+    
+}
+
+@media (max-width: 720px) {
+    .card{
+        letter-spacing: 0px;
+        font-size: 0.9rem;
+    } 
+    .carousel__content{
+        overflow: visible;
+    }
+    .carousel{
+        display: grid;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fill,minmax(10rem,25rem));
+        justify-content: center;
+        align-items: center;
+    }
+    .carousel img{
+        width: 100%;
+        height: 90%;
+    }
+
+    .puntos{
+        display:none;
+    }
+    
+}
+@media (max-width: 500px) {
+
+
+    .card{
+        letter-spacing: 0px;
+        font-size: 1rem;
+    } 
+    .card h1{
+        letter-spacing: 0px;
+        font-size: 1.3rem;
+        margin: 1px;
+        
+    }
+    
+    .carousel__titulo{
+        margin-top: 30px;
+    }
+
+    .carousel__content{
+        overflow: visible;
+    }
+    .carousel{
+        display: grid;
+        grid-auto-rows: auto;
+        grid-template-columns: repeat(auto-fill,minmax(10rem,25rem));
+        justify-content: center;
+        align-items: center;
+    }
+    .carousel img{
+        width: 100%;
+        height: 90%;
+    }
+
+    .puntos{
+        display:none;
+    }
+}
+@media(max-width: 450px){
+
+   .navbar{
+       display: flex;
+       width: 100%;
+       justify-content: end;
+   }
+
+    .opciones{
+        display: flex;
+        flex-direction: column;
+        right: 0;
+        top: 1px;
+        width: 150px;
+        height: 100%;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+        transition: all 1s ease;
+    }
+    .opciones a{
+        margin: 10px;
+    }
+    .active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .menu__hamburguesa{
+        display: flex;
+        /* width: 100%; */
+        right: 0;
+        justify-content: flex-end;
+        align-items: center;
+        position: relative;
+        z-index: 2000;
+        transition: 1s;
+        position: fixed;
+    }
+    .hamburguesa__activa{
+        transform: translateX(-150px);
+    }
+    .hamburguesa{
+        transition: all 1s ease;
+        padding: 10px;
+        font-size: 20px;
+        color: rgb(0, 165, 206);
+    }
+
+
+}
